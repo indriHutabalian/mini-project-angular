@@ -1,0 +1,31 @@
+<app-header [fixed]="true" [sidebarToggler]="'lg'" [asideMenuToggler]="false">
+  <ul class="nav navbar-nav d-md-down-none">
+    <li class="nav-item px-3">
+      <h4 class="text-muted">Mini Project Angular</h4>
+    </li>
+  </ul>
+  <ul class="nav navbar-nav ml-auto mr-2">
+    <li class="nav-item px-3">
+      <i class="fa fa-user text-primary"></i>&nbsp; Welcome, {{user?.firstName}} {{user?.lastName}} !
+    </li>
+    <li class="nav-item pr-2">
+      <span class="nav-link" style="cursor: pointer" (click)="logout()">
+        <i class="fa fa-lock"></i> Logout
+      </span>
+    </li>
+  </ul>
+</app-header>
+
+<div class="app-body">
+  <app-sidebar [fixed]="true" [display]="'lg'">
+    <app-sidebar-nav [navItems]="navItems" [perfectScrollbar] [disabled]="sidebarMinimized"></app-sidebar-nav>
+    <app-sidebar-minimizer></app-sidebar-minimizer>
+  </app-sidebar>
+
+  <!-- Main content -->
+  <main class="main">
+    <div class="container-fluid">
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+</div>

@@ -1,0 +1,52 @@
+<div class="app flex-row align-items-center  pace-done">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-5">
+        <div class="card shadow p-4">
+          <div class="card-body">
+            <h1>Login</h1>
+            <p class="text-muted">Sign In to your account</p>
+            <div *ngIf="errorMessage.length > 0" class="alert alert-danger">
+              <strong>Login Failed!</strong><br/> {{errorMessage}}
+              <button type="button" class="close" aria-label="Close" (click)="closeAlert()">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <!-- Username -->
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <i class="fa fa-user"></i>
+                </span>
+              </div>
+              <input type="text" class="form-control" [ngClass]="setClassError(isUsernameEmpty)" [(ngModel)]="userLogin.username" placeholder="Username">
+              <div class="invalid-feedback">
+                <span class="text-danger" *ngIf="isUsernameEmpty">
+                  <i class="fa fa-warning"></i> Username is empty</span>
+              </div>
+            </div>
+            <!-- Password -->
+            <div class="input-group mb-4">
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <i class="fa fa-lock"></i>
+                </span>
+              </div>
+              <input type="password" class="form-control" [ngClass]="setClassError(isPasswordEmpty)" [(ngModel)]="userLogin.password" placeholder="Password">
+              <div class="invalid-feedback">
+                <span class="text-danger" *ngIf="isPasswordEmpty">
+                  <i class="fa fa-warning"></i> Password is empty</span>
+              </div>
+            </div>
+            <!-- Button Login -->
+            <div class="row">
+              <div class="col-12 text-right">
+                <button type="button" class="btn btn-primary px-4" (click)="login()">Login</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
